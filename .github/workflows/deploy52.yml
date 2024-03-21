@@ -23,7 +23,23 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3\
+
+      v2
+                  - name: Collect changelog of rush
+  # You may pin to the exact commit or the version.
+  # uses: xile611/collect-rush-changlog@4b29ccd1dbc15735137841e8476e597720aa19da
+  uses: xile611/collect-rush-changlog@v1.1.0
+  with:
+    # The version of changelog, if not specified, the lastest changelog will be collected
+    version: # optional
+    # The root path of a rush project
+    rush_path: # optional, default is ./
+    # The black list of packageName, use comma to join multi package name
+    black_list: # optional
+    # The tags of packages, use comma to join multi package tag
+    tags: # optional
+          
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
